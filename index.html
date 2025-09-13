@@ -1,0 +1,156 @@
+
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Evan Sharol</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://kit.fontawesome.com/abcd1234.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <!-- Navbar (Sticky Top) -->
+    <header class="navbar-sticky">
+      <div class="logo">evan_sharol</div>
+      <nav class="navbar">
+        <ul>
+          <li><a href="#home" class="active">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <a href="#contact" class="contact-btn">Contact Me</a>
+    </header>
+
+    <!-- Home Section -->
+    <section id="home" class="home">
+      <div class="home-content">
+        <img src="images/your-photo.jpg" alt="Profile Photo" class="profile-pic">
+        <h1>Hi, I'm <span>Evan Sharol</span></h1>
+        <h3>I'm <span id="typewriter"></span><span class="cursor">|</span></h3>
+        <p>
+          A passionate full stack developer, UI/UX designer, and video editor dedicated to crafting clean, modern digital experiences.
+        </p>
+        <a href="resume.pdf" class="btn" download>Download Resume</a>
+        <!-- Social Icons -->
+        <div class="socials">
+          <a href="https://github.com/yourprofile" target="_blank">
+            <img src="images/github.svg" alt="GitHub" style="height:32px;width:32px;">
+          </a>
+          <a href="https://linkedin.com/in/yourprofile" target="_blank">
+            <img src="images/link_logo.png" alt="LinkedIn" style="height:32px;width:32px;">
+          </a>
+          <a href="mailto:youremail@example.com">
+            <img src="images/contact.svg" alt="Email" style="height:32px;width:32px;">
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <div class="about-bg" id="about">
+      <section class="about-section">
+        <h2>About Me</h2>
+        <div class="tabs">
+          <button class="tab-btn active" data-target="education">Education</button>
+          <button class="tab-btn" data-target="skills">Skills</button>
+          <button class="tab-btn" data-target="certifications">Certifications</button>
+        </div>
+        <div class="content-container">
+          <!-- Education -->
+          <div id="education" class="content-box active">
+            <div style="display: grid; grid-template-columns: 1fr; gap: 2rem;">
+              <div style="border: 2px solid #ccc; border-radius: 8px; padding: 1.5rem;">
+                <h3>St John's Matriculation Higher Secondary School</h3>
+                <p>Percentage: 94%</p>
+              </div>
+              <div style="border: 2px solid #ccc; border-radius: 8px; padding: 1.5rem;">
+                <h3>Loyola ICAM College of Engineering and Technology</h3>
+                <p>BE Computer Science Engineering</p>
+                <p>CGPA: 9.25</p>
+              </div>
+            </div>
+          </div>
+          <!-- Skills -->
+          <div id="skills" class="content-box">
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;">
+              <div style="border: 1px solid #ccc; border-radius: 8px; padding: 1.5rem;">
+                <h3 style="text-align:center; margin-bottom:1.2rem;">Programming Language</h3>
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; justify-items: center; align-items: center; background: #f4f6fc; border: 2px dashed #7ed6df; border-radius: 12px; padding: 1.2rem;">
+                  <img src="images/java.png" alt="Java" style="height:90px;width:90px;object-fit:contain;">
+                    <img src="images/c.png" alt="C" style="height:96px;width:96px;object-fit:contain;">
+                    <img src="images/python.png" alt="Python" style="height:76px;width:76px;object-fit:contain;">
+                    <img src="images/mysql.png" alt="MySQL" style="height:96px;width:96px;object-fit:contain;">
+                </div>
+              </div>
+              <div style="border: 1px solid #ccc; border-radius: 8px; padding: 1.5rem;">
+                <h3 style="text-align:center; margin-bottom:1.2rem;">Technical</h3>
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; justify-items: center; align-items: center; background: #f4f6fc; border: 2px dashed #7ed6df; border-radius: 12px; padding: 1.2rem;">
+                  <img src="images/react.png" alt="React" style="height:96px;width:96px;object-fit:contain;">
+                  <img src="images/node.png" alt="Node.js" style="height:96px;width:96px;object-fit:contain;">
+                  <img src="images/html.png" alt="HTML" style="height:96px;width:96px;object-fit:contain;">
+                  <img src="images/css.png" alt="CSS" style="height:96px;width:96px;object-fit:contain;">
+                </div>
+              </div>
+              <div style="padding: 1.5rem;">
+                <h3 style="text-align:center; margin-bottom:1.2rem;">Non-Technical</h3>
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; justify-items: center; align-items: center; background: #f4f6fc; border: 2px dashed #7ed6df; border-radius: 12px; padding: 1.2rem;">
+                  <img src="images/canva.png" alt="Canva" style="height:96px;width:96px;object-fit:contain;padding:12px;border-radius:16px;box-shadow:0 2px 8px rgba(0,0,0,0.08);">
+                  <img src="images/figma.png" alt="Figma" style="height:96px;width:96px;object-fit:contain;padding:12px;border-radius:16px;box-shadow:0 2px 8px rgba(0,0,0,0.08);">
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Certifications -->
+          <div id="certifications" class="content-box">
+            <div>
+              <p>📜 Certified Web Developer</p>
+              <p>📜 UI/UX Bootcamp Certification</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+      <h2>Projects</h2>
+      <div class="project-grid">
+        <div class="project-card">Project 1</div>
+        <div class="project-card">Project 2</div>
+        <div class="project-card">Project 3</div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+      <h2>Contact Me</h2>
+      <form>
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea placeholder="Your Message" rows="5"></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </section>
+
+    <footer>
+      <p>© 2025 Evan Sharol. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+      // Tab switching for About section
+      const tabs = document.querySelectorAll(".tab-btn");
+      const contents = document.querySelectorAll(".content-box");
+      tabs.forEach(tab => {
+        tab.addEventListener("click", () => {
+          tabs.forEach(btn => btn.classList.remove("active"));
+          contents.forEach(content => content.classList.remove("active"));
+          tab.classList.add("active");
+          document.getElementById(tab.dataset.target).classList.add("active");
+        });
+      });
+    </script>
+    <script src="index.js"></script>
+  </body>
+  </html>
