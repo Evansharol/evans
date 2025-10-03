@@ -1,156 +1,1111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio of Evan Sharol, a Full Stack Developer, UI/UX Designer, and Video Editor offering innovative web development, video editing, poster design, and invitation design services.">
+  <meta name="keywords" content="Evan Sharol, portfolio, full stack developer, UI/UX designer, video editor, web development, React, Java, graphic design">
+  <meta name="author" content="Evan Sharol">
+  <title>Evan Sharol | Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="https://via.placeholder.com/32?text=ES">
+  <script src="https://kit.fontawesome.com/abcd1234.js" crossorigin="anonymous"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+      scroll-behavior: smooth;
+    }
 
-  <!DOCTYPE html>
-  <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio | Evan Sharol</title>
-    <link rel="stylesheet" href="index.css">
-    <script src="https://kit.fontawesome.com/abcd1234.js" crossorigin="anonymous"></script>
-  </head>
-  <body>
-    <!-- Navbar (Sticky Top) -->
-    <header class="navbar-sticky">
-      <div class="logo">evan_sharol</div>
-      <nav class="navbar">
-        <ul>
-          <li><a href="#home" class="active">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-      <a href="#contact" class="contact-btn">Contact Me</a>
-    </header>
+    body {
+      background: #f8fafc;
+      color: #0a192f;
+      line-height: 1.6;
+    }
 
-    <!-- Home Section -->
-    <section id="home" class="home">
-      <div class="home-content">
-        <img src="images/your-photo.jpg" alt="Profile Photo" class="profile-pic">
-        <h1>Hi, I'm <span>Evan Sharol</span></h1>
-        <h3>I'm <span id="typewriter"></span><span class="cursor">|</span></h3>
-        <p>
-          A passionate full stack developer, UI/UX designer, and video editor dedicated to crafting clean, modern digital experiences.
-        </p>
-        <a href="resume.pdf" class="btn" download>Download Resume</a>
-        <!-- Social Icons -->
-        <div class="socials">
-          <a href="https://github.com/yourprofile" target="_blank">
-            <img src="images/github.svg" alt="GitHub" style="height:32px;width:32px;">
-          </a>
-          <a href="https://linkedin.com/in/yourprofile" target="_blank">
-            <img src="images/link_logo.png" alt="LinkedIn" style="height:32px;width:32px;">
-          </a>
-          <a href="mailto:youremail@example.com">
-            <img src="images/contact.svg" alt="Email" style="height:32px;width:32px;">
-          </a>
-        </div>
+    /* --- Animations --- */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* --- Navbar --- */
+    .navbar {
+      position: sticky;
+      top: 0;
+      background: #0a192f;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.2rem 5%;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      backdrop-filter: blur(4px);
+    }
+    .navbar .logo {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      font-size: 1.8rem;
+      color: #3b82f6;
+    }
+    .navbar .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+    .navbar .nav-links a {
+      color: #e2e8f0;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1.1rem;
+      transition: color 0.3s ease;
+    }
+    .navbar .nav-links a:hover,
+    .navbar .nav-links a.active {
+      color: #3b82f6;
+    }
+    .navbar .cta-btn {
+      background: #3b82f6;
+      color: #ffffff;
+      padding: 0.8rem 1.8rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    .navbar .cta-btn:hover {
+      background: #2563eb;
+      transform: scale(1.05);
+    }
+
+    /* --- Home Section --- */
+    .home {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+      padding: 4rem 5%;
+      text-align: center;
+      animation: fadeIn 1s ease;
+    }
+    .home-content {
+      max-width: 700px;
+    }
+    .profile-pic {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      border: 4px solid #3b82f6;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    }
+    .home h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: #0a192f;
+      margin-bottom: 0.5rem;
+    }
+    .home h1 span {
+      color: #3b82f6;
+    }
+    .home h3 {
+      font-size: 1.6rem;
+      font-weight: 500;
+      color: #1e3a8a;
+      margin-bottom: 1rem;
+    }
+    .cursor {
+      animation: blink 0.8s infinite;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 0; }
+      50% { opacity: 1; }
+    }
+    .home p {
+      font-size: 1.1rem;
+      color: #334155;
+      max-width: 500px;
+      margin: 0 auto 2rem;
+    }
+    .btn {
+      background: #3b82f6;
+      color: #ffffff;
+      padding: 0.9rem 2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    .btn:hover {
+      background: #2563eb;
+      transform: scale(1.05);
+    }
+    .socials {
+      display: flex;
+      justify-content: center;
+      gap: 1.2rem;
+      margin-top: 1.5rem;
+    }
+    .socials a {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      color: #0a192f;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+    }
+    .socials a:hover {
+      background: #3b82f6;
+      color: #ffffff;
+      transform: scale(1.1);
+    }
+
+    /* --- About Section --- */
+    .about {
+      padding: 5rem 5%;
+      background: linear-gradient(135deg, #e8f1ff 0%, #bcd4e6 100%);
+      animation: slideIn 0.8s ease;
+    }
+    .about h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2.8rem;
+      font-weight: 600;
+      color: #0a192f;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .tabs {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .tab-btn {
+      background: #ffffff;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #0a192f;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .tab-btn.active,
+    .tab-btn:hover {
+      background: #3b82f6;
+      color: #ffffff;
+    }
+    .content-container {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    }
+    .content-box {
+      display: none;
+    }
+    .content-box.active {
+      display: block;
+    }
+    .education-grid,
+    .skills-grid,
+    .certifications-grid {
+      display: grid;
+      gap: 1.5rem;
+    }
+    .education-item,
+    .skill-item,
+    .cert-item {
+      background: #f8fafc;
+      padding: 1.5rem;
+      border-radius: 10px;
+      border-left: 4px solid #3b82f6;
+      transition: all 0.3s ease;
+    }
+    .education-item:hover,
+    .skill-item:hover,
+    .cert-item:hover {
+      transform: translateX(4px);
+      background: #eff6ff;
+    }
+    .education-item h3 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #0a192f;
+    }
+    .education-item p,
+    .cert-info p {
+      font-size: 0.95rem;
+      color: #334155;
+    }
+    .skills-category h3 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #0a192f;
+      margin-bottom: 1rem;
+    }
+    .skill-item {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .skill-item i {
+      font-size: 1.3rem;
+      color: #3b82f6;
+    }
+    .skill-item span {
+      font-size: 1rem;
+      font-weight: 500;
+      color: #0a192f;
+    }
+    .cert-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .cert-info h4 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #0a192f;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .view-cert-btn {
+      background: #3b82f6;
+      color: #ffffff;
+      padding: 0.6rem 1.2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+    }
+    .view-cert-btn:hover {
+      background: #2563eb;
+      transform: scale(1.05);
+    }
+
+    /* --- Experience Section --- */
+    .experience {
+      padding: 5rem 5%;
+      background: linear-gradient(135deg, #e3f0ff 0%, #a3cffa 100%);
+      animation: slideIn 0.8s ease;
+    }
+    .experience h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2.8rem;
+      font-weight: 600;
+      color: #0a192f;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .experience-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 2rem;
+    }
+    .experience-card {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+    }
+    .experience-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    }
+    .experience-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .company-badge {
+      background: #3b82f6;
+      color: #ffffff;
+      padding: 0.5rem 1.2rem;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+    .duration {
+      background: #f8fafc;
+      color: #334155;
+      padding: 0.5rem 1rem;
+      border-radius: 50px;
+      font-size: 0.85rem;
+    }
+    .experience-card h3 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #0a192f;
+      margin-bottom: 0.5rem;
+    }
+    .project-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #3b82f6;
+      margin-bottom: 0.8rem;
+    }
+    .skills-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 1rem;
+    }
+    .skill {
+      background: #0a192f;
+      color: #ffffff;
+      padding: 0.4rem 1rem;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+    .skill:hover {
+      background: #3b82f6;
+    }
+    .experience-description p {
+      font-size: 0.95rem;
+      color: #334155;
+      line-height: 1.7;
+    }
+    .highlights {
+      background: #f8fafc;
+      padding: 1rem;
+      border-radius: 8px;
+      margin-top: 1rem;
+    }
+    .highlight-item {
+      font-size: 0.9rem;
+      color: #0a192f;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* --- Projects Section --- */
+    .projects {
+      padding: 5rem 5%;
+      background: linear-gradient(135deg, #e6edff 0%, #a8c7fa 100%);
+      animation: slideIn 0.8s ease;
+    }
+    .projects h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2.8rem;
+      font-weight: 600;
+      color: #0a192f;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .project-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    .project-card {
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    .project-card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    }
+    .project-image {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    .project-card h3 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #0a192f;
+      margin: 1rem;
+    }
+    .project-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin: 0 1rem 1rem;
+    }
+    .tech-tag {
+      background: #3b82f6;
+      color: #ffffff;
+      padding: 0.4rem 0.8rem;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .tech-tag i {
+      font-size: 0.9rem;
+    }
+
+    /* --- Services Section --- */
+    .services {
+      padding: 5rem 5%;
+      background: linear-gradient(135deg, #e2f3f5 0%, #99d6ea 100%);
+      animation: slideIn 0.8s ease;
+    }
+    .services h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2.8rem;
+      font-weight: 600;
+      color: #0a192f;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .services-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+    .service-card {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 2rem;
+      text-align: center;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+    }
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    }
+    .service-card i {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    .service-card h3 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #0a192f;
+      margin-bottom: 0.8rem;
+    }
+    .service-card p {
+      font-size: 0.95rem;
+      color: #334155;
+      line-height: 1.6;
+    }
+    .service-video i { color: #ec4899; }
+    .service-poster i { color: #8b5cf6; }
+    .service-invitation i { color: #10b981; }
+    .service-web i { color: #3b82f6; }
+
+    /* --- Modal Styles --- */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.6);
+      z-index: 1000;
+      animation: fadeIn 0.3s ease;
+    }
+    .modal-content {
+      background: #ffffff;
+      margin: 10% auto;
+      padding: 2rem;
+      border-radius: 12px;
+      max-width: 500px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+      position: relative;
+      animation: slideIn 0.3s ease;
+    }
+    .close {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 1.5rem;
+      color: #334155;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+    .close:hover {
+      color: #0a192f;
+    }
+    .modal-content h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: #0a192f;
+      margin-bottom: 1.5rem;
+    }
+    .project-details {
+      display: grid;
+      gap: 1rem;
+    }
+    .detail-item {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      padding: 0.8rem;
+      background: #f8fafc;
+      border-radius: 8px;
+      border-left: 3px solid #3b82f6;
+    }
+    .detail-item i {
+      font-size: 1.2rem;
+      color: #3b82f6;
+    }
+    .detail-item strong {
+      font-weight: 600;
+      color: #0a192f;
+      min-width: 100px;
+    }
+    .project-description {
+      padding: 1rem;
+      background: #f8fafc;
+      border-radius: 8px;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+    }
+    .project-description i {
+      font-size: 1.2rem;
+      color: #3b82f6;
+    }
+    .project-description p {
+      font-size: 0.95rem;
+      color: #334155;
+      line-height: 1.6;
+    }
+
+    /* --- Contact Section --- */
+    .contact {
+      padding: 5rem 5%;
+      background: linear-gradient(135deg, #e9e6ff 0%, #b8b8d8 100%);
+      animation: slideIn 0.8s ease;
+    }
+    .contact h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2.8rem;
+      font-weight: 600;
+      color: #0a192f;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .contact form {
+      max-width: 500px;
+      margin: 0 auto;
+      display: grid;
+      gap: 1rem;
+    }
+    .contact input,
+    .contact textarea {
+      padding: 1rem;
+      border: 1px solid #d1d5db;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+    }
+    .contact input:focus,
+    .contact textarea:focus {
+      border-color: #3b82f6;
+      outline: none;
+    }
+    .contact textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+    .contact button {
+      background: #3b82f6;
+      color: #ffffff;
+      padding: 1rem;
+      border: none;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .contact button:hover {
+      background: #2563eb;
+      transform: scale(1.05);
+    }
+
+    /* --- Footer --- */
+    footer {
+      background: #0a192f;
+      color: #e2e8f0;
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      font-weight: 400;
+    }
+
+    /* --- Responsive Design --- */
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 1rem 3%;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+      .navbar .nav-links {
+        gap: 1rem;
+      }
+      .navbar .nav-links a {
+        font-size: 1rem;
+      }
+      .home {
+        padding: 3rem 3%;
+      }
+      .home h1 {
+        font-size: 2.2rem;
+      }
+      .home h3 {
+        font-size: 1.4rem;
+      }
+      .tabs {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      .tab-btn {
+        font-size: 1rem;
+        padding: 0.7rem;
+      }
+      .experience-container,
+      .project-grid,
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+      .modal-content {
+        width: 90%;
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="logo">Evan Sharol</div>
+    <nav class="nav-links">
+      <a href="#home" class="active" aria-current="page">Home</a>
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="#contact" class="cta-btn" aria-label="Contact Evan Sharol">Get in Touch</a>
+  </header>
+
+  <!-- Home Section -->
+  <section id="home" class="home" aria-labelledby="home-title">
+    <div class="home-content">
+      <img src="https://via.placeholder.com/160?text=Profile" alt="Evan Sharol Profile Photo" class="profile-pic">
+      <h1 id="home-title">Hi, I'm <span>Evan Sharol</span></h1>
+      <h3>I'm a <span id="typewriter"></span><span class="cursor">|</span></h3>
+      <p>Full Stack Developer, UI/UX Designer, and Video Editor crafting innovative web solutions, engaging designs, and compelling visuals.</p>
+      <a href="resume.pdf" class="btn" download aria-label="Download Resume">Download Resume</a>
+      <div class="socials">
+        <a href="https://github.com/yourprofile" target="_blank" aria-label="GitHub Profile"><i class="fab fa-github"></i></a>
+        <a href="https://linkedin.com/in/yourprofile" target="_blank" aria-label="LinkedIn Profile"><i class="fab fa-linkedin"></i></a>
+        <a href="mailto:youremail@example.com" aria-label="Email Evan Sharol"><i class="fas fa-envelope"></i></a>
       </div>
-    </section>
-
-    <!-- About Section -->
-    <div class="about-bg" id="about">
-      <section class="about-section">
-        <h2>About Me</h2>
-        <div class="tabs">
-          <button class="tab-btn active" data-target="education">Education</button>
-          <button class="tab-btn" data-target="skills">Skills</button>
-          <button class="tab-btn" data-target="certifications">Certifications</button>
-        </div>
-        <div class="content-container">
-          <!-- Education -->
-          <div id="education" class="content-box active">
-            <div style="display: grid; grid-template-columns: 1fr; gap: 2rem;">
-              <div style="border: 2px solid #ccc; border-radius: 8px; padding: 1.5rem;">
-                <h3>St John's Matriculation Higher Secondary School</h3>
-                <p>Percentage: 94%</p>
-              </div>
-              <div style="border: 2px solid #ccc; border-radius: 8px; padding: 1.5rem;">
-                <h3>Loyola ICAM College of Engineering and Technology</h3>
-                <p>BE Computer Science Engineering</p>
-                <p>CGPA: 9.25</p>
-              </div>
-            </div>
-          </div>
-          <!-- Skills -->
-          <div id="skills" class="content-box">
-            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;">
-              <div style="border: 1px solid #ccc; border-radius: 8px; padding: 1.5rem;">
-                <h3 style="text-align:center; margin-bottom:1.2rem;">Programming Language</h3>
-                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; justify-items: center; align-items: center; background: #f4f6fc; border: 2px dashed #7ed6df; border-radius: 12px; padding: 1.2rem;">
-                  <img src="images/java.png" alt="Java" style="height:90px;width:90px;object-fit:contain;">
-                    <img src="images/c.png" alt="C" style="height:96px;width:96px;object-fit:contain;">
-                    <img src="images/python.png" alt="Python" style="height:76px;width:76px;object-fit:contain;">
-                    <img src="images/mysql.png" alt="MySQL" style="height:96px;width:96px;object-fit:contain;">
-                </div>
-              </div>
-              <div style="border: 1px solid #ccc; border-radius: 8px; padding: 1.5rem;">
-                <h3 style="text-align:center; margin-bottom:1.2rem;">Technical</h3>
-                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; justify-items: center; align-items: center; background: #f4f6fc; border: 2px dashed #7ed6df; border-radius: 12px; padding: 1.2rem;">
-                  <img src="images/react.png" alt="React" style="height:96px;width:96px;object-fit:contain;">
-                  <img src="images/node.png" alt="Node.js" style="height:96px;width:96px;object-fit:contain;">
-                  <img src="images/html.png" alt="HTML" style="height:96px;width:96px;object-fit:contain;">
-                  <img src="images/css.png" alt="CSS" style="height:96px;width:96px;object-fit:contain;">
-                </div>
-              </div>
-              <div style="padding: 1.5rem;">
-                <h3 style="text-align:center; margin-bottom:1.2rem;">Non-Technical</h3>
-                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; justify-items: center; align-items: center; background: #f4f6fc; border: 2px dashed #7ed6df; border-radius: 12px; padding: 1.2rem;">
-                  <img src="images/canva.png" alt="Canva" style="height:96px;width:96px;object-fit:contain;padding:12px;border-radius:16px;box-shadow:0 2px 8px rgba(0,0,0,0.08);">
-                  <img src="images/figma.png" alt="Figma" style="height:96px;width:96px;object-fit:contain;padding:12px;border-radius:16px;box-shadow:0 2px 8px rgba(0,0,0,0.08);">
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Certifications -->
-          <div id="certifications" class="content-box">
-            <div>
-              <p>📜 Certified Web Developer</p>
-              <p>📜 UI/UX Bootcamp Certification</p>
-            </div>
-          </div>
-        </div>
-      </section>
     </div>
+  </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
-      <h2>Projects</h2>
-      <div class="project-grid">
-        <div class="project-card">Project 1</div>
-        <div class="project-card">Project 2</div>
-        <div class="project-card">Project 3</div>
+  <!-- About Section -->
+  <section id="about" class="about" aria-labelledby="about-title">
+    <h2 id="about-title">About Me</h2>
+    <div class="tabs" role="tablist">
+      <button class="tab-btn active" data-target="education" role="tab" aria-selected="true" aria-controls="education">Education</button>
+      <button class="tab-btn" data-target="skills" role="tab" aria-selected="false" aria-controls="skills">Skills</button>
+      <button class="tab-btn" data-target="certifications" role="tab" aria-selected="false" aria-controls="certifications">Certifications</button>
+    </div>
+    <div class="content-container">
+      <div id="education" class="content-box active" role="tabpanel">
+        <div class="education-grid">
+          <div class="education-item">
+            <h3>St John's Matriculation Higher Secondary School</h3>
+            <p>Percentage: 94%</p>
+          </div>
+          <div class="education-item">
+            <h3>Loyola ICAM College of Engineering and Technology</h3>
+            <p>BE Computer Science Engineering, CGPA: 9.25</p>
+          </div>
+        </div>
       </div>
-    </section>
+      <div id="skills" class="content-box" role="tabpanel">
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;">
+          <div style="border: 1px solid #ccc; border-radius: 8px; padding: 1.5rem;">
+            <h3 style="text-align:center; margin-bottom:1.2rem;">Programming Language</h3>
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; justify-items: center; align-items: center; background: #f4f6fc; border: 2px dashed #7ed6df; border-radius: 12px; padding: 1.2rem;">
+              <img src="images/java.png" alt="Java" style="height:90px;width:90px;object-fit:contain;">
+              <img src="images/c.png" alt="C" style="height:96px;width:96px;object-fit:contain;">
+              <img src="images/python.png" alt="Python" style="height:76px;width:76px;object-fit:contain;">
+              <img src="images/mysql.png" alt="MySQL" style="height:96px;width:96px;object-fit:contain;">
+            </div>
+          </div>
+          <div style="border: 1px solid #ccc; border-radius: 8px; padding: 1.5rem;">
+            <h3 style="text-align:center; margin-bottom:1.2rem;">Technical</h3>
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; justify-items: center; align-items: center; background: #eff6ff; border: 2px dashed #3b82f6; border-radius: 12px; padding: 1.2rem;">
+              <img src="images/react.png" alt="React" style="height:96px;width:96px;object-fit:contain;">
+              <img src="images/node.png" alt="Node.js" style="height:96px;width:96px;object-fit:contain;">
+              <img src="images/html.png" alt="HTML" style="height:96px;width:96px;object-fit:contain;">
+              <img src="images/css.png" alt="CSS" style="height:96px;width:96px;object-fit:contain;">
+            </div>
+          </div>
+          <div style="padding: 1.5rem;">
+            <h3 style="text-align:center; margin-bottom:1.2rem;">Non-Technical</h3>
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; justify-items: center; align-items: center; background: #eff6ff; border: 2px dashed #3b82f6; border-radius: 12px; padding: 1.2rem;">
+              <img src="images/canva.png" alt="Canva" style="height:96px;width:96px;object-fit:contain;padding:12px;border-radius:16px;box-shadow:0 2px 8px rgba(0,0,0,0.08);">
+              <img src="images/figma.png" alt="Figma" style="height:96px;width:96px;object-fit:contain;padding:12px;border-radius:16px;box-shadow:0 2px 8px rgba(0,0,0,0.08);">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="certifications" class="content-box" role="tabpanel">
+        <div class="certifications-grid">
+          <div class="cert-item">
+            <div class="cert-info">
+              <h4><i class="fas fa-certificate"></i> IoT Edge Cloud ML</h4>
+              <p>Advanced certification in IoT and Machine Learning.</p>
+            </div>
+            <a href="certificates/iot.pdf" class="view-cert-btn" target="_blank" aria-label="View IoT Certification">View</a>
+          </div>
+          <div class="cert-item">
+            <div class="cert-info">
+              <h4><i class="fas fa-certificate"></i> HTML & CSS</h4>
+              <p>Comprehensive certification in web design.</p>
+            </div>
+            <a href="certificates/html.pdf" class="view-cert-btn" target="_blank" aria-label="View HTML and CSS Certification">View</a>
+          </div>
+          <div class="cert-item">
+            <div class="cert-info">
+              <h4><i class="fas fa-certificate"></i> Python Basics</h4>
+              <p>Fundamental Python programming certification.</p>
+            </div>
+            <a href="certificates/python.pdf" class="view-cert-btn" target="_blank" aria-label="View Python Certification">View</a>
+          </div>
+          <div class="cert-item">
+            <div class="cert-info">
+              <h4><i class="fas fa-certificate"></i> AI Prompting</h4>
+              <p>Certification in AI prompt engineering.</p>
+            </div>
+            <a href="certificates/ai.pdf" class="view-cert-btn" target="_blank" aria-label="View AI Prompting Certification">View</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-      <h2>Contact Me</h2>
-      <form>
-        <input type="text" placeholder="Your Name" required>
-        <input type="email" placeholder="Your Email" required>
-        <textarea placeholder="Your Message" rows="5"></textarea>
-        <button type="submit">Send Message</button>
-      </form>
-    </section>
+  <!-- Experience Section -->
+  <section id="experience" class="experience" aria-labelledby="experience-title">
+    <h2 id="experience-title">Experience</h2>
+    <div class="experience-container">
+      <div class="experience-card">
+        <div class="experience-header">
+          <div class="company-badge">Synergech</div>
+          <div class="duration">1 Month</div>
+        </div>
+        <h3>React Developer</h3>
+        <div class="project-title">Fashion Board Admin Dashboard</div>
+        <div class="skills-row">
+          <span class="skill">React.js</span>
+          <span class="skill">Node.js</span>
+        </div>
+        <div class="experience-description">
+          <p>Developed a robust admin dashboard for the fashion industry, streamlining product and order management.</p>
+        </div>
+        <div class="highlights">
+          <div class="highlight-item"><i class="fas fa-check-circle"></i> Reusable UI Components</div>
+          <div class="highlight-item"><i class="fas fa-check-circle"></i> Real-time Data Visualization</div>
+        </div>
+      </div>
+      <div class="experience-card">
+        <div class="experience-header">
+          <div class="company-badge">Shadowfox</div>
+          <div class="duration">1 Month</div>
+        </div>
+        <h3>Java Developer</h3>
+        <div class="project-title">Desktop Application</div>
+        <div class="skills-row">
+          <span class="skill">Java</span>
+          <span class="skill">JavaFX</span>
+        </div>
+        <div class="experience-description">
+          <p>Designed interactive desktop applications with responsive UI and backend integration.</p>
+        </div>
+        <div class="highlights">
+          <div class="highlight-item"><i class="fas fa-check-circle"></i> Performance Optimization</div>
+          <div class="highlight-item"><i class="fas fa-check-circle"></i> Workflow Automation</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <footer>
-      <p>© 2025 Evan Sharol. All Rights Reserved.</p>
-    </footer>
+  <!-- Projects Section -->
+  <section id="projects" class="projects" aria-labelledby="projects-title">
+    <h2 id="projects-title">Projects</h2>
+    <div class="project-grid">
+      <div class="project-card" onclick="openModal('homeAutomationModal')" role="button" tabindex="0" aria-label="View Home Automation Project Details">
+        <img src="https://via.placeholder.com/300x180?text=Home+Automation" alt="Home Automation Project" class="project-image">
+        <h3>Home Automation</h3>
+        <div class="project-tech">
+          <span class="tech-tag"><i class="fas fa-microchip"></i> IoT</span>
+          <span class="tech-tag"><i class="fas fa-robot"></i> Arduino</span>
+        </div>
+      </div>
+      <div class="project-card" onclick="openModal('foodDonationModal')" role="button" tabindex="0" aria-label="View Food Donation App Project Details">
+        <img src="https://via.placeholder.com/300x180?text=Food+Donation" alt="Food Donation App Project" class="project-image">
+        <h3>Food Donation App</h3>
+        <div class="project-tech">
+          <span class="tech-tag"><i class="fab fa-react"></i> React</span>
+          <span class="tech-tag"><i class="fab fa-js"></i> JavaScript</span>
+        </div>
+      </div>
+      <div class="project-card" onclick="openModal('septqaphereModal')" role="button" tabindex="0" aria-label="View Septqaphere Project Details">
+        <img src="https://via.placeholder.com/300x180?text=Septqaphere" alt="Septqaphere App Project" class="project-image">
+        <h3>Septqaphere</h3>
+        <div class="project-tech">
+          <span class="tech-tag"><i class="fas fa-mobile-alt"></i> Mobile App</span>
+          <span class="tech-tag"><i class="fas fa-bullseye"></i> Goal Tracking</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <script>
-      // Tab switching for About section
-      const tabs = document.querySelectorAll(".tab-btn");
-      const contents = document.querySelectorAll(".content-box");
-      tabs.forEach(tab => {
-        tab.addEventListener("click", () => {
-          tabs.forEach(btn => btn.classList.remove("active"));
-          contents.forEach(content => content.classList.remove("active"));
-          tab.classList.add("active");
-          document.getElementById(tab.dataset.target).classList.add("active");
+  <!-- Services Section -->
+  <section id="services" class="services" aria-labelledby="services-title">
+    <h2 id="services-title">Services</h2>
+    <div class="services-grid">
+      <div class="service-card service-video">
+        <i class="fas fa-video" aria-hidden="true"></i>
+        <h3>Video Editing</h3>
+        <p>Professional video editing for engaging promotional content and events.</p>
+      </div>
+      <div class="service-card service-poster">
+        <i class="fas fa-paint-brush" aria-hidden="true"></i>
+        <h3>Poster Design</h3>
+        <p>Striking posters for marketing, events, and branding.</p>
+      </div>
+      <div class="service-card service-invitation">
+        <i class="fas fa-envelope-open-text" aria-hidden="true"></i>
+        <h3>Invitation Design</h3>
+        <p>Elegant, personalized invitations for any occasion.</p>
+      </div>
+      <div class="service-card service-web">
+        <i class="fas fa-code" aria-hidden="true"></i>
+        <h3>Web Development</h3>
+        <p>Responsive, high-performance websites tailored to your needs.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Project Modals -->
+  <div id="homeAutomationModal" class="modal" role="dialog" aria-labelledby="homeAutomationModalTitle">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('homeAutomationModal')" role="button" aria-label="Close Modal">&times;</span>
+      <h2 id="homeAutomationModalTitle">Home Automation</h2>
+      <div class="project-details">
+        <div class="detail-item">
+          <i class="fas fa-clock"></i>
+          <strong>Duration:</strong> 2 days
+        </div>
+        <div class="detail-item">
+          <i class="fas fa-users"></i>
+          <strong>Team Size:</strong> 4
+        </div>
+        <div class="detail-item">
+          <i class="fas fa-user-tie"></i>
+          <strong>Role:</strong> Hardware, Designer
+        </div>
+        <div class="detail-item">
+          <i class="fas fa-tools"></i>
+          <strong>Skills:</strong> IoT, Arduino
+        </div>
+        <div class="project-description">
+          <i class="fas fa-info-circle"></i>
+          <p>IoT-based smart home system with motion sensors and automated lighting control.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="foodDonationModal" class="modal" role="dialog" aria-labelledby="foodDonationModalTitle">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('foodDonationModal')" role="button" aria-label="Close Modal">&times;</span>
+      <h2 id="foodDonationModalTitle">Food Donation App</h2>
+      <div class="project-details">
+        <div class="detail-item">
+          <i class="fas fa-clock"></i>
+          <strong>Duration:</strong> 3 days
+        </div>
+        <div class="detail-item">
+          <i class="fas fa-users"></i>
+          <strong>Team Size:</strong> 4
+        </div>
+        <div class="detail-item">
+          <i class="fas fa-user-tie"></i>
+          <strong>Role:</strong> Frontend Developer
+        </div>
+        <div class="detail-item">
+          <i class="fas fa-tools"></i>
+          <strong>Skills:</strong> React, JavaScript
+        </div>
+        <div class="project-description">
+          <i class="fas fa-info-circle"></i>
+          <p>App connecting hotels with orphanages using GPS tracking and rewards.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="septqaphereModal" class="modal" role="dialog" aria-labelledby="septqaphereModalTitle">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('septqaphereModal')" role="button" aria-label="Close Modal">&times;</span>
+      <h2 id="septqaphereModalTitle">Septqaphere</h2>
+      <div class="project-details">
+        <div class="detail-item">
+          <i class="fas fa-bullseye"></i>
+          <strong>Type:</strong> Focus & Goal App
+        </div>
+        <div class="project-description">
+          <i class="fas fa-info-circle"></i>
+          <p>Mobile app to enhance focus and productivity with goal tracking.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact" aria-labelledby="contact-title">
+    <h2 id="contact-title">Get in Touch</h2>
+    <form action="https://formspree.io/f/your-form-id" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required aria-label="Your Name">
+      <input type="email" name="email" placeholder="Your Email" required aria-label="Your Email">
+      <textarea name="message" placeholder="Your Message" rows="5" required aria-label="Your Message"></textarea>
+      <button type="submit" aria-label="Send Message">Send Message</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Evan Sharol. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    // Typewriter Effect
+    const roles = ["Full Stack Developer", "UI/UX Designer", "Video Editor"];
+    let i = 0, j = 0, isDeleting = false;
+    const typewriter = document.getElementById("typewriter");
+    function typeEffect() {
+      const currentRole = roles[i];
+      if (!isDeleting) {
+        typewriter.textContent = currentRole.substring(0, j + 1);
+        j++;
+        if (j === currentRole.length) {
+          isDeleting = true;
+          setTimeout(typeEffect, 1200);
+          return;
+        }
+      } else {
+        typewriter.textContent = currentRole.substring(0, j - 1);
+        j--;
+        if (j === 0) {
+          isDeleting = false;
+          i = (i + 1) % roles.length;
+        }
+      }
+      setTimeout(typeEffect, isDeleting ? 50 : 100);
+    }
+    typeEffect();
+
+    // Tab Switching
+    const tabs = document.querySelectorAll(".tab-btn");
+    const contents = document.querySelectorAll(".content-box");
+    tabs.forEach(tab => {
+      tab.addEventListener("click", () => {
+        tabs.forEach(btn => {
+          btn.classList.remove("active");
+          btn.setAttribute("aria-selected", "false");
         });
+        contents.forEach(content => content.classList.remove("active"));
+        tab.classList.add("active");
+        tab.setAttribute("aria-selected", "true");
+        document.getElementById(tab.dataset.target).classList.add("active");
       });
-    </script>
-    <script src="index.js"></script>
-  </body>
-  </html>
+    });
+
+    // Modal Functionality
+    function openModal(modalId) {
+      document.getElementById(modalId).style.display = "block";
+      document.getElementById(modalId).querySelector(".modal-content").focus();
+    }
+    function closeModal(modalId) {
+      document.getElementById(modalId).style.display = "none";
+    }
+    window.onclick = function(event) {
+      if (event.target.classList.contains("modal")) {
+        event.target.style.display = "none";
+      }
+    };
+
+    // Smooth Scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener("click", function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute("href"));
+        if (target) {
+          target.scrollIntoView({ behavior: "smooth" });
+          document.querySelectorAll(".nav-links a").forEach(link => link.classList.remove("active"));
+          this.classList.add("active");
+        }
+      });
+    });
+
+    // Keyboard Accessibility for Project Cards
+    document.querySelectorAll(".project-card").forEach(card => {
+      card.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          card.click();
+        }
+      });
+    });
+  </script>
+</body>
+</html>
